@@ -1,0 +1,35 @@
+<!--
+ * @,@Author: ,: 985911032@qq.com
+ * @,@Date: ,: 2020-11-17 21:37:08
+ * @,@LastEditTime: ,: 2020-11-18 15:52:21
+ * @,@LastEditors: ,: Please set LastEditors
+ * @,@Description: ,: In User Settings Edit
+ * @,@FilePath: ,: \noma\src\app\components\component\index\index\index.component.html
+ -->
+<nz-layout class="layout-noma">
+  <nz-header class="header">
+       <!-- <div class="header-item"><a [routerLink]="['/']" >首页</a></div> -->
+       <ul nz-menu nzTheme="dark" nzMode="horizontal">
+        <li nz-menu-item [routerLink]="['']" >首页</li>
+
+      </ul>
+       <ng-container *ngIf="!isLogin; else elseTemplate">
+        <ul nz-menu nzTheme="dark" nzMode="horizontal" >
+          <li nz-menu-item [routerLink]="['/login']">登录</li>
+          <li nz-menu-item [routerLink]="['/register']" >注册</li>
+        </ul>
+       </ng-container>
+       <ng-template #elseTemplate>
+        <!-- <div class="header-item"><a [routerLink]="['/admin']" >我的后台</a></div> -->
+        <ul nz-menu nzTheme="dark" nzMode="horizontal" >
+          <li nz-menu-item [routerLink]="['/admin']" >我的后台</li>
+        </ul>
+       </ng-template>
+  </nz-header>
+  <nz-content class="content">
+
+    <router-outlet></router-outlet>
+
+  </nz-content>
+  <nz-footer class="footer">@nomama Author</nz-footer>
+</nz-layout>
